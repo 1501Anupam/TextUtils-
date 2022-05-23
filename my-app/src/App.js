@@ -47,7 +47,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/about" element={<About/>} />
-            <Route exact path="/" element={<Textbox heading="Enter a text in the below box..." mode={mode} showAlert={showAlert}/>} />
+            <Route exact path="/" element={<Textbox heading="Try Text Utils - Lowercase to Uppercase | Uppercase to Lowercase | Clear the text" mode={mode} showAlert={showAlert}/>} />
           </Routes>
         </div>
       </Router>

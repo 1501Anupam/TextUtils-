@@ -28,7 +28,7 @@ export default function Textbox(props) {
   return (
     <>
     <div className="container my-3" style={{color: props.mode === "dark"? "white": "black"}}>
-      <h3 className="my-3">{props.heading}</h3>
+      <h4 className="my-3">{props.heading}</h4>
       <div className="mb-3">
         <textarea
           className="form-control"
@@ -38,24 +38,24 @@ export default function Textbox(props) {
           rows="6"
         ></textarea>
       </div>
-      <button className="btn btn-success" onClick={onUpClicked}>
-        Convert to Upper case
+      <button disabled = {text.length ===0} style={{fontWeight: 600}} className="btn btn-success my-1" onClick={onUpClicked}>
+        Convert To Upper Case
       </button>
-      <button className="mx-2 btn btn-warning" onClick={onLowClicked}>
-        Convert to Lower case
+      <button disabled = {text.length ===0} style={{fontWeight: 600}} className="mx-2 my-1 btn btn-warning" onClick={onLowClicked}>
+        Convert To Lower Case
       </button>
-      <button className="mx-1 btn btn-info" onClick={clearTextClicked}>
-        Clear text
+      <button disabled = {text.length ===0} style={{fontWeight: 600}} className="mx-1 my-1 btn btn-info" onClick={clearTextClicked}>
+        Clear Text
       </button>
     </div>
     <div className="container my-3">
-      <h3 style={{color: props.mode === "dark"? "white": "black"}}>Word Counter</h3>
-      <p style={{color: props.mode === "dark"? "white": "black"}}>The number of words are {text.split(" ").length} and the number of characters are {text.length}</p>
-      <p style={{color: props.mode === "dark"? "white": "black"}}>The time required to read the text is {0.008 * text.split(" ").length} minutes</p>
+      <h4 style={{color: props.mode === "dark"? "white": "black"}}>Word Counter</h4>
+      <p style={{color: props.mode === "dark"? "white": "black"}}>The number of words are {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} and the number of characters are {text.length}</p>
+      <p style={{color: props.mode === "dark"? "white": "black"}}>The time required to read the text is {0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} minutes</p>
     </div>
     <div className="container my-3">
-      <h3 style={{color: props.mode === "dark"? "white": "black"}}>Preview</h3>
-      <p style={{color: props.mode === "dark"? "white": "black"}}>{text.length>0 ?text: "Enter some text to preview it here!"}</p>
+      <h4 style={{color: props.mode === "dark"? "white": "black"}}>Preview</h4>
+      <p style={{color: props.mode === "dark"? "white": "black"}}>{text.length>0 ?text: "Nothing to preview!"}</p>
     </div>
     </>
   );
